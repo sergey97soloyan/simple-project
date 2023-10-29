@@ -9,8 +9,8 @@ services:
 
   my-app:
     container_name: my-app
-    build: ../.
-    image: my-app:to_configure
+    # build: ../.
+    image: my-app:latest
     ports:
       - 3000:3000
     networks:
