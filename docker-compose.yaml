@@ -9,7 +9,7 @@ services:
 
   my-app:
     container_name: my-app
-    # build: ../.
+    build: .
     image: my-app:latest
     ports:
       - 3000:3000
