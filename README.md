@@ -68,3 +68,18 @@ Step 5: access the nodejs application from browser
     docker build -t my-app:1.0 .       
     
 The dot "." at the end of the command denotes location of the Dockerfile.
+##################
+
+# Correct commands for run mongodb and mongo-express in imperative way
+
+'''
+docker run -d --name mongo-dev -p 27017:27017 -v ~/mongodata:/data/db \
+-e MONGO_INITDB_ROOT_USERNAME='admin' -e MONGO_INITDB_DATABASE='auth' \
+-e MONGO_INITDB_ROOT_PASSWORD='pass' --hostname mongo-dev --network mongo-net mongo
+'''
+
+'''
+docker run -d --name me -p 8081:8081 -e ME_CONFIG_MONGODB_ADMINUSERNAME='admin' \
+-e ME_CONFIG_MONGODB_ADMINPASSWORD='pass' -e ME_CONFIG_MONGODB_SERVER='mongo-dev' \
+-e ME_CONFIG_MONGODB_PORT=27017 --hostname me --network mongo-net mongo-express
+'''
